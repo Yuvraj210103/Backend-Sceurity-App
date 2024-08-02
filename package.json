@@ -39,6 +39,7 @@
     "nodemailer": "^6.9.13",
     "puppeteer": "^22.6.5",
     "sharp": "^0.33.4",
+    "systeminformation": "^5.23.2",
     "zod": "^3.22.4"
   }
 }
