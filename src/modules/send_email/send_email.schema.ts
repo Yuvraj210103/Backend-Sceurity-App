@@ -17,4 +17,5 @@ export const sendEmailSchema = z.object({
       })
     )
     .optional(),
+  auth: z.object({ user: z.string(), pass: z.string() }).optional(),
 });

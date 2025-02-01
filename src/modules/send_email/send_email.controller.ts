@@ -16,17 +16,28 @@ export const sendEmail = async (
       return;
     }
 
-    const { to_email, from_name, subject, html, text, attachments, bcc, cc } =
-      result.data;
+    const {
+      to_email,
+      from_name,
+      subject,
+      html,
+      text,
+      attachments,
+      bcc,
+      cc,
+      auth,
+    } = result.data;
 
     const transporter = nodemailer.createTransport({
       service: "gmail",
       secure: true,
       debug: true,
-      auth: {
-        user: process.env.SENDER_EMAIL,
-        pass: process.env.SENDER_PASSWORD,
-      },
+      auth: auth
+        ? auth
+        : {
+            user: process.env.SENDER_EMAIL,
+            pass: process.env.SENDER_PASSWORD,
+          },
     });
 
     const mailOptions: Mail.Options = {
